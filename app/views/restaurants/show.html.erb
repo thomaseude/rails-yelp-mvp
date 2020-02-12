@@ -1,20 +1,22 @@
-<h1>Restaurant - <%= @restaurant %></h1>
-<ul>
-  <li> <%= @restaurant.name  %> </li>
-  <li> <%= @restaurant.address  %> </li>
-  <li> <%= @restaurant.phone_number  %> </li>
-  <li> <%= @restaurant.category  %> </li>
-</ul>
+<div class="container">
+  <h1>Restaurant - <%= @restaurant %></h1>
+  <ul>
+    <li> <%= @restaurant.name  %> </li>
+    <li> <%= @restaurant.address  %> </li>
+    <li> <%= @restaurant.phone_number  %> </li>
+    <li> <%= @restaurant.category  %> </li>
+  </ul>
 
-<p><%= link_to "Add a new Review", new_restaurant_review_path(@restaurant)%></p>
-<p><%= link_to "Return to restaurants", restaurants_path%></p>
+  <p><%= link_to "Add a new Review", new_restaurant_review_path(@restaurant)%></p>
+  <p><%= link_to "Return to restaurants", restaurants_path%></p>
 
-<h2>Reviews</h2>
+  <h2>Reviews</h2>
 
-<ul>
-  <% @restaurant.reviews.each do |review| %>
-    <li>
-      <%= review.content %>
-    </li>
-  <% end %>
-</ul>
+  <ul>
+    <% @restaurant.reviews.each do |review| %>
+      <li>
+        <%= review.content %> <%= "⭐️"*(review.rating) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
